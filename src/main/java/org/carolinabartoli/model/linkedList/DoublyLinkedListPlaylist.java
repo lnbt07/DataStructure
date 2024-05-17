@@ -14,6 +14,7 @@ public class DoublyLinkedListPlaylist {
     }
 
     public void addSong(int songId){
+        System.out.println("Adding the song "+ songId+" to the playlist.");
         Node newSong = new Node(songId);
 
         if(head == null){
@@ -34,6 +35,7 @@ public class DoublyLinkedListPlaylist {
     public void nextSong(){
         if(currentPlaying != null){
             currentPlaying = currentPlaying.next;
+            System.out.println("Changing to the next song, "+currentPlaying.value+", of the playlist.");
         }
     }
 
@@ -45,6 +47,7 @@ public class DoublyLinkedListPlaylist {
 
         if(temp != null){
             currentPlaying = temp;
+            System.out.println("Changing to the previous song, "+currentPlaying.value+", of the playlist.");
         }
     }
 
@@ -53,6 +56,7 @@ public class DoublyLinkedListPlaylist {
         do {
             if(temp.value == songId){
                 currentPlaying = temp;
+                System.out.println("Switching to the song "+currentPlaying.value+" of the playlist.");
             }
             temp = temp.next;
         } while (temp != head);

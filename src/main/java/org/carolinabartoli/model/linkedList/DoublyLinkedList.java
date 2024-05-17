@@ -12,6 +12,7 @@ public class DoublyLinkedList {
     }
 
     public void insertAtIndex(int index, int val){
+        System.out.println("Inserting the value "+val+" at the index "+index);
         Node newNode = new Node(val);
 
         if(index == 0){
@@ -38,11 +39,10 @@ public class DoublyLinkedList {
     }
 
     public void deleteNode(int val){
+        System.out.println("Deleting the value from the doublyList: " + val);
         Node temp = head;
-        System.out.println("Temp value: "+temp.value);
         while(temp != null && temp.value != val){
             temp = temp.next;
-            System.out.println("Temp value: "+temp.value);
         }
 
         if(temp == null){
@@ -51,9 +51,7 @@ public class DoublyLinkedList {
         }
 
         Node A = temp.prev;
-        System.out.println("A value: "+A.value);
         Node B = temp.next;
-        System.out.println("B value: "+B.value);
 
         if(A != null){
             A.next = B;
@@ -69,6 +67,7 @@ public class DoublyLinkedList {
     }
 
     public void insertAtEnd(int value) {
+        System.out.println("Adding the value at the doublyList: " + value);
         Node newNode = new Node(value);
 
         // If there are no nodes in the linked list
@@ -88,6 +87,7 @@ public class DoublyLinkedList {
     }
 
     public void print(){
+        System.out.print("Doubly Linked List: ");
         Node temp = this.head;
         while(temp!=null){
             System.out.printf("%d ",temp.value);

@@ -28,6 +28,7 @@ public class LinkedList {
     }
 
     public void print(){
+        System.out.print("Linked List: ");
         Node temp = this.head;
         while(temp!=null){
             System.out.printf("%d ",temp.value);

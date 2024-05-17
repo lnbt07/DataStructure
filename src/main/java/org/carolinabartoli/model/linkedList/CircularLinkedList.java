@@ -12,6 +12,7 @@ public class CircularLinkedList {
     }
 
     public void insertAtEnd(int val) {
+        System.out.println("Adding the value at the circularList: " + val);
         Node newNode = new Node(val);
         if (this.head == null) {
             this.head = newNode;
@@ -28,6 +29,7 @@ public class CircularLinkedList {
     }
 
     public void print() {
+        System.out.print("Circular Linked List: ");
         Node temp = this.head;
         while (temp != null) {
             System.out.printf("%d ", temp.value);
@@ -38,6 +40,7 @@ public class CircularLinkedList {
     }
 
     public void delete(int val) {
+        System.out.println("Deleting the value from the circularList: " + val);
         Node newNode = null;
         if (this.tail == this.head && this.tail.value == val) {
             this.head = null;
@@ -60,7 +63,7 @@ public class CircularLinkedList {
 
     public void josephusProblem(){
         Node player = head;
-        while(player.next != null){
+        while(player.next != player){
             Node receiveKnife = player.next.next;
             if(player.next == head){
                 head = receiveKnife;
@@ -68,6 +71,6 @@ public class CircularLinkedList {
             player.next = receiveKnife;
             player = player.next;
         }
-        System.out.println("The winner of the Josephus Game is "+player.value);
+        System.out.println("The winner of the Josephus Game using CircularLinkedList is "+player.value);
     }
 }
