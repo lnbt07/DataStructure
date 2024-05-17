@@ -56,6 +56,18 @@ public class CircularLinkedList {
                 temp = temp.next;
             }
         }
+    }
 
+    public void josephusProblem(){
+        Node player = head;
+        while(player.next != null){
+            Node receiveKnife = player.next.next;
+            if(player.next == head){
+                head = receiveKnife;
+            }
+            player.next = receiveKnife;
+            player = player.next;
+        }
+        System.out.println("The winner of the Josephus Game is "+player.value);
     }
 }

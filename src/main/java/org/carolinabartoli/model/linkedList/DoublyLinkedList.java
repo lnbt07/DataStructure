@@ -37,10 +37,62 @@ public class DoublyLinkedList {
         }
     }
 
-    public void deleteVal(int val){
+    public void deleteNode(int val){
         Node temp = head;
-        while(temp.next != null && temp.value != val){
-
+        System.out.println("Temp value: "+temp.value);
+        while(temp != null && temp.value != val){
+            temp = temp.next;
+            System.out.println("Temp value: "+temp.value);
         }
+
+        if(temp == null){
+            System.out.println("Temp  null: ");
+            return;
+        }
+
+        Node A = temp.prev;
+        System.out.println("A value: "+A.value);
+        Node B = temp.next;
+        System.out.println("B value: "+B.value);
+
+        if(A != null){
+            A.next = B;
+        }
+
+        if (B != null){
+            B.prev = A;
+        }
+
+        if(temp == head){
+            head = head.next;
+        }
+    }
+
+    public void insertAtEnd(int value) {
+        Node newNode = new Node(value);
+
+        // If there are no nodes in the linked list
+        // Set the new node as head and tail
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
+        // Set the prev of the newNode
+        newNode.prev = tail;
+        // Set next of tail to the new Node
+        tail.next = newNode;
+
+        // Set new Node as the new tail
+        tail = newNode;
+    }
+
+    public void print(){
+        Node temp = this.head;
+        while(temp!=null){
+            System.out.printf("%d ",temp.value);
+            temp=temp.next;
+        }
+        System.out.print("\n");
     }
 }
